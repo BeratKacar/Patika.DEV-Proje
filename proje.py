@@ -1,4 +1,4 @@
-
+import ast
 def flatten(lst):
     flat = []
     for i in lst:
@@ -9,7 +9,7 @@ def flatten(lst):
     return flat
 
 # Kullanıcıdan girdi al
-user_input = input("Listeyi girin: ")  # Örn: [1, [2, 'abc'], 3]
+user_input = input()  
 
 # String'i listeye çevir
 nested_list = ast.literal_eval(user_input)
