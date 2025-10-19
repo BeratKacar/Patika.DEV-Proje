@@ -1,3 +1,5 @@
+ÖDEV 1
+
 SELECT title, description
 FROM film
 ******************************************************
@@ -16,3 +18,60 @@ WHERE first_name = 'Mary'   (Answer = Smith)
 SELECT *
 FROM film
 WHERE length < 50 AND rental_rate = 2.99 OR rental_rate = 4.99
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ÖDEV 2
+
+SELECT *
+FROM film
+WHERE replacement_cost BETWEEN 12.99 AND 16.98  (16.98 çünkü alt değer küçük eşit ama üst değer büyük olmalı yargısı verilmiş. Üst değer 16.99 ise o zaman 16.98 verilirse 16.99 dan küçük olur ve eşit olmaz.)
+********************************************************
+SELECT first_name, last_name
+FROM actor
+WHERE first_name IN ('Penelope','Nick','Ed')
+********************************************************
+SELECT * 
+FROM film
+WHERE rental_rate IN (0.99,2.99,4.99) AND replacement_cost IN (12.99, 15.99, 28.99)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ÖDEV 3
+
+SELECT country
+FROM country
+WHERE country LIKE 'A%a'
+********************************************************
+SELECT country
+FROM country
+WHERE country LIKE '%_____n'  (ya da [WHERE country LIKE '%n' AND LENGTH(country) >= 6 ])
+********************************************************
+SELECT title
+FROM film
+WHERE LOWER(title) LIKE '%t%t%t%t%';
+********************************************************
+SELECT *
+FROM film
+WHERE title LIKE 'C%' AND length > 90 AND rental_rate = 2.99
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ÖDEV 4
+
+SELECT DISTINCT replacement_cost
+FROM film
+********************************************************
+SELECT COUNT(DISTINCT replacement_cost)
+FROM film
+********************************************************
+SELECT COUNT(title)
+FROM film
+WHERE title LIKE 'T%' AND rating='G'
+********************************************************
+SELECT COUNT(country)
+FROM country
+WHERE LENGTH(country) = 5
+********************************************************
+SELECT COUNT(city)
+FROM city
+WHERE city LIKE '%r' OR city LIKE '%R'
