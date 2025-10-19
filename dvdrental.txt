@@ -25,7 +25,7 @@ WHERE length < 50 AND rental_rate = 2.99 OR rental_rate = 4.99
 
 SELECT *
 FROM film
-WHERE replacement_cost BETWEEN 12.99 AND 16.98  (16.98 çünkü alt değer küçük eşit ama üst değer büyük olmalı yargısı verilmiş. Üst değer 16.99 ise o zaman 16.98 verilirse 16.99 dan küçük olur ve eşit olmaz.)
+WHERE replacement_cost NOT BETWEEN 12.99 AND 16.98 
 ********************************************************
 SELECT first_name, last_name
 FROM actor
@@ -101,3 +101,43 @@ LIMIT 4
 
 ÖDEV 6
 
+SELECT AVG(rental_rate)
+FROM film
+********************************************************
+SELECT COUNT(title)
+FROM film
+WHERE title LIKE 'C%'
+********************************************************
+SELECT length
+FROM film
+WHERE rental_rate = 0.99 
+ORDER BY length DESC
+LIMIT 1
+********************************************************
+SELECT COUNT(DISTINCT replacement_cost)
+FROM film
+WHERE length > 150
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ÖDEV 7
+
+SELECT rating, COUNT(*)
+FROM film
+GROUP BY rating;
+********************************************************
+SELECT replacement_cost, COUNT(*)
+FROM film
+GROUP BY replacement_cost 
+HAVING COUNT(*) > 50 
+ORDER BY replacement_cost DESC
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ÖDEV 8
+
+CREATE TABLE employee(
+id INT,
+name VARCHAR(50),
+birthday DATE,
+email VARCHAR(100)
+);
+********************************************************
