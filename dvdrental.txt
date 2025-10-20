@@ -207,3 +207,78 @@ WHERE id = 26
 Update employee
 SET id = 51
 WHERE id = 11
+********************************************************
+DELETE FROM employee
+WHERE id = 8
+DELETE FROM employee
+WHERE name = 'Nanni'
+DELETE FROM employee
+WHERE name = 'La verne'
+delete from employee
+where birthday = '2001-01-13'
+DELETE FROM employee
+WHERE email = 'messelin1@fc2.com'
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ÖDEV 9
+
+SELECT city, country
+FROM city
+INNER JOIN country
+ON city.country_id = country.country_id
+********************************************************
+SELECT payment_id, first_name, last_name
+FROM payment
+INNER JOIN customer
+ON payment.customer_id = customer.customer_id
+********************************************************
+SELECT rental_id, first_name, last_name
+FROM rental
+INNER JOIN customer
+ON rental.customer_id = customer.customer_id
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ÖDEV 10
+
+SELECT city, country
+FROM city
+LEFT JOIN country
+ON city.country_id = country.country_id
+********************************************************
+SELECT payment_id, first_name, last_name
+FROM customer
+RIGHT JOIN payment
+ON payment.customer_id = customer.customer_id
+********************************************************
+SELECT rental_id, first_name, last_name
+FROM rental
+FULL JOIN customer
+ON rental.customer_id = customer.customer_id
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ÖDEV 11
+
+(SELECT first_name
+FROM actor
+ORDER BY first_name)
+UNION
+(SELECT first_name
+FROM customer
+ORDER BY first_name)
+********************************************************
+(SELECT first_name
+FROM actor
+ORDER BY first_name)
+INTERSECT
+(SELECT first_name
+FROM customer
+ORDER BY first_name)
+********************************************************
+(SELECT first_name
+FROM actor
+ORDER BY first_name)
+EXCEPT
+(SELECT first_name
+FROM customer
+ORDER BY first_name DESC)
+********************************************************
