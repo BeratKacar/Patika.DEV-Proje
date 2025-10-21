@@ -281,4 +281,34 @@ EXCEPT
 (SELECT first_name
 FROM customer
 ORDER BY first_name DESC)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ÖDEV 12
+
+SELECT *
+FROM film
+WHERE length > (
+SELECT AVG(length)
+FROM film )
 ********************************************************
+SELECT COUNT(*)
+FROM film
+WHERE rental_rate = (
+SELECT MAX(rental_rate)
+FROM film)
+********************************************************
+SELECT COUNT(*)
+FROM film
+WHERE rental_rate = (
+SELECT MIN(rental_rate)
+FROM film) AND replacement_cost = (
+SELECT MIN(replacement_cost)
+FROM film )
+********************************************************
+SELECT customer_id, COUNT(*) AS total
+FROM payment
+GROUP BY customer_id
+ORDER BY total DESC
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ÖDEV 13
